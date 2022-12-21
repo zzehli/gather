@@ -1,0 +1,106 @@
+//  text #52796f
+//  logo #7e9760
+// interface #849b68
+// background light #e6f6d1
+// middle #52796f
+// dark #354f52
+//https://coolors.co/cad2c5-84a98c-52796f-354f52-2f3e46
+
+ .formContainer{
+    background-color: #e6f6d1;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .formWrapper{
+        background-color: white;
+        padding: 20px 60px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+
+        .logo{
+            color: #7e9760;
+            font-weight: bold;
+            font-size: 30px;
+        }
+
+        .title{
+            color: #52796f;
+            font-size: 16px;
+        }
+
+        form{
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+
+            input{
+                padding: 15px;
+                border: none;
+                border-bottom: 1px solid #a8bbae;
+                &::placeholder{
+                    color: #52796f;
+                }
+            }
+
+            label{
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                color: #52796f;
+                font-size: 12px;
+                cursor: pointer;
+
+                img {
+                    width: 32px;
+                }
+            }
+
+            button{
+                background-color: #97b0aa;
+                color: white;
+                padding: 10px;
+                font-weight: bold;
+                border: none;
+                cursor: pointer;
+                border-radius: 5px;
+            }
+        }
+        p{
+            color:#52796f;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    }
+ }
+
+
+.home{
+    .container{
+        height: 100vh;
+        display: flex;
+        
+        .sidebar{
+            flex: 1;
+            max-width: 300px;
+            background-color: #849b68;
+            
+            .navbar{
+                display: flex;
+                align-items: center;
+                background-color: #52796f
+            }
+        }
+
+        .chat{
+            flex: 2;
+            background-color: #e6f6d1;
+        }
+
+    }
+ }
+
