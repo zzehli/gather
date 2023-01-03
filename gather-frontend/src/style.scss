@@ -223,7 +223,7 @@ $darkColor: #082018;
                             align-items: flex-end;
                             p {
                                 background-color: white;
-                                color: #082018;
+                                color: #294038;
                                 border-radius: 10px 0px 10px 10px;
                             }
                         }
@@ -242,11 +242,10 @@ $darkColor: #082018;
                 align-items: center;
                 justify-content: space-between;
 
-                input{
+                textarea{
                     width: 100%;
-                    border: none;
                     outline: none;
-                    font-size: 18px;
+                    font-size: 16px;
                     background-color: #f8faf7;
 
                     &::placeholder{

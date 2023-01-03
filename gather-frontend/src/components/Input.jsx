@@ -7,7 +7,7 @@ import Image from '../assets/util-icon/image-64.png'
 const Input = () => {
   return (
     <div className='input'>
-        <input type="text" placeholder='Your message here' />
+        <textarea type="text" placeholder='Your message here' />
         <div className='send'>
             <img src={Attach} alt="" />
             <input type="file" style={{display:"none"}} id="file" />
