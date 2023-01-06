@@ -1,11 +1,25 @@
-import WebSocket, { WebSocketServer } from 'ws';
+import { createServer } from "http";
+import { Server } from "socket.io";
+import express from "express";
+import config from "./config.js";
 
-const wss = new WebSocketServer({ port: 8080 });
+const EVENTS = {
+  connection: "connection",
+}
 
-wss.on('connection', function connection(ws) {
-  ws.on('message', function message(data, isBinary) {
-    [...wss.clients].filter(c => c !== ws)
-    .forEach(c => c.send(isBinary? data.toString(): data));
-    console.log('received: %s', data);
-    })
-  });
+const app = express()
+const httpServer = createServer(app);
+const io = new Server(httpServer, {
+  cors: {
+    origin: config.corsOrigin,
+  }
+});
+
+//for dev purporses
+app.get("/", (_, res) => res.send('server is up'))
+
+httpServer.listen(config.port, config.host, () => console.log(`server running`))
+
+io.on(EVENTS.connection, (socket) => {
+  console.log('socket connected' + socket.id);
+})
