@@ -55,7 +55,7 @@ io.on(EVENTS.connection, (socket) => {
     socket.emit(EVENTS.server.joined_room, roomId);
   });
 
-  //user sends a room msg
+  //user sends msg to a room
   socket.on(EVENTS.client.send_room_msg, ({roomId, message, username}) => {
     const date = new Date();
     console.log(message)

@@ -30,7 +30,7 @@ const Messages = () => {
   return (
     <div>
       {msg.map(({message}, index) => {
-        return <p key={index}>{JSON.stringify(message)}</p>
+        return <p key={index}>{message}</p>
       })}
 
       <div>
