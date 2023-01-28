@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import io from 'socket.io-client';
 import { SOCKET_URL } from '../config/default';
 import EVENTS from '../config/event';
@@ -19,6 +19,12 @@ function SocketProvider(props) {
     const [roomList, setRoomList] = useState({});
     const [msg, setMsg] = useState([]);
 
+    useEffect(() => {
+        window.onfocus = function (){
+            document.title = "Chat app"
+        }
+    }, [])
+
     socket.on(EVENTS.server.rooms, (roomList) => {
         setRoomList(roomList);
     })
@@ -29,7 +35,9 @@ function SocketProvider(props) {
     })
 
     socket.on(EVENTS.server.room_msg, ({message, username, time}) => {
-        console.log(message);
+        if(!document.hasFocus()) {
+            document.title = "New message...";
+        }
         setMsg([
             ...msg, {message, username, time}
         ])

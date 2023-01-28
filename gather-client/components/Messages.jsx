@@ -23,6 +23,8 @@ const Messages = () => {
     ])
     newMsgRef.current.value = "";
   }
+
+  
   if (!roomId) {
     return <div />
   }

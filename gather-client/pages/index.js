@@ -1,7 +1,7 @@
 import { useSocket } from '../context/socketContext'
 import Messages from '../components/Messages';
 import Rooms from '../components/Rooms';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 // TODO https://youtu.be/a_xo-SbIfUQ?t=1959 skipped styling
 export default function Home() {
     const { socket, username, setUsername } = useSocket();
@@ -17,6 +17,13 @@ export default function Home() {
 
         localStorage.setItem("username", value);
     }
+
+    useEffect(() => {
+      if (usernameRef) {
+        usernameRef.current.value = localStorage.getItem('username') || ""
+      }
+    }, [])
+    
     return (<div>
     {!username && <div>
         <input placeholder="username" ref={usernameRef}/>
