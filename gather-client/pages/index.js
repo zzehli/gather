@@ -1,15 +1,16 @@
+import styles from "../styles/Home.module.css"
 import { useSocket } from '../context/socketContext'
 import Messages from '../components/Messages';
 import Rooms from '../components/Rooms';
 import { useEffect, useRef } from 'react';
-// TODO https://youtu.be/a_xo-SbIfUQ?t=1959 skipped styling
+
 export default function Home() {
     const { socket, username, setUsername } = useSocket();
     const usernameRef = useRef(null);
 
-    function handleSetUsername(){
+    function handleSetUsername() {
         const value = usernameRef.current.value
-        if (!value){
+        if (!value) {
             return;
         }
 
@@ -19,20 +20,24 @@ export default function Home() {
     }
 
     useEffect(() => {
-      if (usernameRef) {
-        usernameRef.current.value = localStorage.getItem('username') || ""
-      }
+        if (usernameRef) {
+            usernameRef.current.value = localStorage.getItem('username') || ""
+        }
     }, [])
-    
+
     return (<div>
-    {!username && <div>
-        <input placeholder="username" ref={usernameRef}/>
-        <button onClick={handleSetUsername}>Submit</button>
-    </div>}
-    {username && <>
-        <Messages></Messages>
-        <Rooms></Rooms>
-    </>}
-        
+        {!username && (
+            <div className={styles.usernameWrapper}>
+                <div className={styles.usernameInner}>
+                    <input placeholder="username" ref={usernameRef} />
+                    <button onClick={handleSetUsername}>Submit</button>
+                </div>
+            </div>)}
+        {username && (
+            <div className={styles.container}>
+                <Rooms/>
+                <Messages/>
+            </div>)}
+
     </div>)
 }

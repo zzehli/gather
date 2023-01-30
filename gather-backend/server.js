@@ -38,7 +38,7 @@ const roomList = {}
 
 io.on(EVENTS.connection, (socket) => {
   console.log('socket connected ' + socket.id);
-
+  socket.emit(EVENTS.server.rooms, roomList)
   //user creates a new room
   socket.on(EVENTS.client.create_room, ({roomName}) => {
     console.log({roomName});

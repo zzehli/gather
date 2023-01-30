@@ -1,6 +1,7 @@
 import React, { useRef } from 'react'
 import EVENTS from '../config/event';
 import { useSocket } from '../context/socketContext'
+import styles from '../styles/Messages.module.css'
 
 const Messages = () => {
 
@@ -24,20 +25,28 @@ const Messages = () => {
     newMsgRef.current.value = "";
   }
 
-  
+
   if (!roomId) {
     return <div />
   }
 
   return (
-    <div>
-      {msg.map(({message}, index) => {
-        return <p key={index}>{message}</p>
-      })}
-
-      <div>
+    <div className={styles.chat}>
+      <div className={styles.messageList}>
+        {msg.map(({ message, username, time }, index) => {
+          return (
+            <div key={index} className={styles.message}>
+                <div className={styles.messageSender}>{username} - {time}</div>
+                <div className={styles.messageContent}>{message}</div>
+            </div>
+          )
+        })}
+      </div>
+      
+      <div className={styles.input}>
         <textarea
-          placeholder='Tell use what you are thinking'
+          type="text"
+          placeholder='Your message here'
           ref={newMsgRef}
           rows={1} />
         <button onClick={handleSendMsg}>Send</button>
