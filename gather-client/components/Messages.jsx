@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import EVENTS from '../config/event';
 import { useSocket } from '../context/socketContext'
 import styles from '../styles/Messages.module.css'
@@ -7,6 +7,7 @@ const Messages = () => {
 
   const { socket, msg, setMsg, roomId, username } = useSocket();
   const newMsgRef = useRef(null);
+  const messageEndRef = useRef(null);
 
   function handleSendMsg() {
     const message = newMsgRef.current.value;
@@ -25,6 +26,11 @@ const Messages = () => {
     newMsgRef.current.value = "";
   }
 
+  useEffect(() => {
+    messageEndRef.current?.scrollIntoView({behavoir: 'smooth'})
+
+  }, [msg])
+  
 
   if (!roomId) {
     return <div />
@@ -41,6 +47,7 @@ const Messages = () => {
             </div>
           )
         })}
+      <div ref={messageEndRef} />
       </div>
       
       <div className={styles.input}>
