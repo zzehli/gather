@@ -27,7 +27,7 @@ const Rooms = () => {
     <nav className={styles.sidebar}>
       <div className={styles.createRoomWrapper}>
         <form onSubmit={handleCreateRoom}>
-          <input ref={newRoomRef} placeholder="New Room Name" />
+          <input required ref={newRoomRef} placeholder="New Room Name" />
           <button type="submit">Create Room</button>
         </form>
       </div>

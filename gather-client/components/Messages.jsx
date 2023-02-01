@@ -54,6 +54,7 @@ const Messages = () => {
       <div className={styles.input}>
         <form onSubmit={handleSendMsg}>
           <textarea
+            required
             type="text"
             placeholder='Your message here'
             ref={newMsgRef}

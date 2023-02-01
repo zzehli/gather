@@ -27,24 +27,13 @@ export default function Home() {
 
     return (<div>
         {!username && (
-            //      <div className='formContainer'>
-            //      <div className='formWrapper'>
-            //          <span className="logo">Gather</span>
-            //          <span className="title">Register</span>
-            //          <form>
-            //              <input type="email" placeholder='email'/>
-            //              <input type="password" placeholder='password'/>
-            //              <button>Sign in</button>
-            //          </form>
-            //      <p>You don't have an account? Register</p>
-            //      </div>
-            //  </div>
+
             <div className={styles.usernameWrapper}>
                 <div className={styles.usernameInner}>
                     <span className={styles.logo}>Gather</span>
                     <span className={styles.title}>Register</span>
                     <form onSubmit={handleSetUsername}>
-                        <input type="username" placeholder="username" ref={usernameRef} />
+                        <input type="text" required placeholder="username" ref={usernameRef} />
                         <button type="submit">Sign In</button>
                     </form>
                 </div>
