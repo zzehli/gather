@@ -9,7 +9,8 @@ const Messages = () => {
   const newMsgRef = useRef(null);
   const messageEndRef = useRef(null);
 
-  function handleSendMsg() {
+  function handleSendMsg(e) {
+    e.preventDefault();
     const message = newMsgRef.current.value;
     if (!String(message).trim()) return;
 
@@ -51,12 +52,14 @@ const Messages = () => {
       </div>
       
       <div className={styles.input}>
-        <textarea
-          type="text"
-          placeholder='Your message here'
-          ref={newMsgRef}
-          rows={1} />
-        <button onClick={handleSendMsg}>Send</button>
+        <form onSubmit={handleSendMsg}>
+          <textarea
+            type="text"
+            placeholder='Your message here'
+            ref={newMsgRef}
+            rows={3} />
+          <button type="submit">Send</button>
+        </form>
       </div>
     </div>
   )

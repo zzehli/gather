@@ -6,7 +6,9 @@ import styles from '../styles/Room.module.css'
 const Rooms = () => {
   const { socket, roomId, roomList } = useSocket();
   const newRoomRef = useRef(null);
-  function handleCreateRoom() {
+  
+  function handleCreateRoom(e) {
+    e.preventDefault();
     const roomName = newRoomRef.current.value || '';
 
     if (!String(roomName).trim()) return;
@@ -24,8 +26,10 @@ const Rooms = () => {
   return (
     <nav className={styles.sidebar}>
       <div className={styles.createRoomWrapper}>
-        <input ref={newRoomRef} placeholder="New Room Name" />
-        <button onClick={handleCreateRoom}>Create Room</button>
+        <form onSubmit={handleCreateRoom}>
+          <input ref={newRoomRef} placeholder="New Room Name" />
+          <button type="submit">Create Room</button>
+        </form>
       </div>
 
       <ul className={styles.roomList}>

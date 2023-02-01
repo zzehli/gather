@@ -5,7 +5,7 @@ import Rooms from '../components/Rooms';
 import { useEffect, useRef } from 'react';
 
 export default function Home() {
-    const { socket, username, setUsername } = useSocket();
+    const { username, setUsername } = useSocket();
     const usernameRef = useRef(null);
 
     function handleSetUsername() {
@@ -27,16 +27,32 @@ export default function Home() {
 
     return (<div>
         {!username && (
+            //      <div className='formContainer'>
+            //      <div className='formWrapper'>
+            //          <span className="logo">Gather</span>
+            //          <span className="title">Register</span>
+            //          <form>
+            //              <input type="email" placeholder='email'/>
+            //              <input type="password" placeholder='password'/>
+            //              <button>Sign in</button>
+            //          </form>
+            //      <p>You don't have an account? Register</p>
+            //      </div>
+            //  </div>
             <div className={styles.usernameWrapper}>
                 <div className={styles.usernameInner}>
-                    <input placeholder="username" ref={usernameRef} />
-                    <button onClick={handleSetUsername}>Submit</button>
+                    <span className={styles.logo}>Gather</span>
+                    <span className={styles.title}>Register</span>
+                    <form onSubmit={handleSetUsername}>
+                        <input type="username" placeholder="username" ref={usernameRef} />
+                        <button type="submit">Sign In</button>
+                    </form>
                 </div>
             </div>)}
         {username && (
             <div className={styles.container}>
-                <Rooms/>
-                <Messages/>
+                <Rooms />
+                <Messages />
             </div>)}
 
     </div>)

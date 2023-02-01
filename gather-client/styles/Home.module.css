@@ -1,13 +1,3 @@
-/* .container {
-  min-height: 100vh;
-  height: 100vh;
-  display: flex;
-  color:aqua
-} */
-.container{
-  height: 100vh;
-  display: flex;
-}
 .usernameWrapper {
   width: 100%;
   display: flex;
@@ -15,12 +5,53 @@
   height: 100vh;
   align-items: center;
   justify-content: center;
-  color:brown
+  background-color: #e6f6d1;
 }
 
 .usernameInner {
+  background-color: white;
+  padding: 20px 60px;
+  border-radius: 10px;
   display: flex;
-  background-color: antiquewhite;
-  padding: 5rem;
-  border-radius: 8px;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.logo{
+  color: #7e9760;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.title{
+  color: #52796f;
+  font-size: 16px;
+}
+
+.container{
+  height: 100vh;
+  display: flex;
+  background-color: #dbe5e0;
+}
+
+.usernameInner form{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  }
+
+.usernameInner input{
+    padding: 15px;
+    border: none;
+    border-bottom: 1px solid #a8bbae;
+}
+
+.usernameInner button{
+    background-color: #97b0aa;
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
 }
