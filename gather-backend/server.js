@@ -30,7 +30,7 @@ const io = new Server(httpServer, {
 app.get("/", (_, res) => res.send('server is up'))
 
 httpServer.listen(config.port, config.host, () => {
-  console.log(`server running on http://${config.host}:${config.port}`)
+  console.log('server running on ', httpServer.address())
 });
 
 const roomList = {}
@@ -57,9 +57,6 @@ io.on(EVENTS.connection, (socket) => {
   //user sends msg to a room
   socket.on(EVENTS.client.send_room_msg, ({roomId, message, username}) => {
     const date = new Date();
-    console.log(message)
-    console.log(username)
-    console.log(roomId)
     socket.to(roomId).emit(EVENTS.server.room_msg, {
       message,
       username,
