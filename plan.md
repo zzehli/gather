@@ -2,11 +2,12 @@
  - [x] add simplified css module
  - [x] modify message list bg color pior to any room
  - [x] enter to submit textarea and create room
- - [ ] deploy with docker
+ - [x] deploy with docker
  - [ ] routing add to login and home page
  - [ ] cache chat room history to local
  - [ ] differentiate mine and others room
  - [ ] list of users online
+ - [ ] Github actions to automate deployment
  - [ ] make a separate login system with firebase
  - [ ] message persistence with MongoDB
  - [ ] refector some of the react hooks

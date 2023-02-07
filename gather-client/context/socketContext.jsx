@@ -21,7 +21,7 @@ function SocketProvider(props) {
 
     useEffect(() => {
         window.onfocus = function (){
-            document.title = "Chat app"
+            document.title = "Gather"
         }
     }, [])
 
