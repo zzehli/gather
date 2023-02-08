@@ -29,12 +29,6 @@
   font-size: 16px;
 }
 
-.container{
-  height: 100vh;
-  display: flex;
-  background-color: #dbe5e0;
-}
-
 .usernameInner form{
   display: flex;
   flex-direction: column;
